@@ -27,7 +27,7 @@ class GiftController extends Controller
      */
     public function create()
     {
-        //
+        return view('gifts.create');
     }
 
     /**

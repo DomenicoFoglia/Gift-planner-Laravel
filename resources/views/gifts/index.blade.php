@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="container mx-auto px-4 py-6">
+    <div class="container mx-auto px-4 py-6 bg-violet-50 rounded-lg shadow">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">I tuoi regali</h1>
             <a href="{{ route('gifts.create') }}"
-                class="bg-blue-500 hover:bg-blue-600 text-gray-700 font-semibold py-2 px-4 rounded">
+                class="bg-violet-500 hover:bg-violet-800 text-white font-semibold py-2 px-4 rounded">
                 Nuovo regalo
             </a>
         </div>
