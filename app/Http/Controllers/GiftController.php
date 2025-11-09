@@ -96,6 +96,10 @@ class GiftController extends Controller
      */
     public function destroy(Gift $gift)
     {
-        //
+        $this->authorize('delete', $gift);
+
+        $gift->delete();
+
+        return redirect()->route('gifts.index')->with('success', 'Regalo eliminato con successo');
     }
 }

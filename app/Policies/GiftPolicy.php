@@ -45,7 +45,7 @@ class GiftPolicy
      */
     public function delete(User $user, Gift $gift): bool
     {
-        return false;
+        return $user->id === $gift->user_id;
     }
 
     /**

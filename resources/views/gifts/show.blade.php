@@ -26,7 +26,8 @@
                 <form action="{{ route('gifts.destroy', $gift) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
+                    <button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo regalo?')"
+                        class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
                         Elimina
                     </button>
                 </form>
