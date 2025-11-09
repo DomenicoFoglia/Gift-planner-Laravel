@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gift;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GiftController extends Controller
 {
@@ -12,7 +13,13 @@ class GiftController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        if (!$user) {
+            abort(403);
+        }
+        // dd($user, $user->gifts);
+        $gifts = $user->gifts;
+        return view('gifts.index', compact('gifts'));
     }
 
     /**

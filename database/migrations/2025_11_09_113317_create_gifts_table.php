@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('gifts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('recipient');
+            $table->string('occasion');
+            $table->string('idea');
+            $table->decimal('budget', 8, 2);
+            $table->enum('status', ['da_comprare', 'comprato', 'consegnato'])->default('da_comprare');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
