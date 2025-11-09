@@ -33,10 +33,10 @@
                 <label for="status" class="block font-semibold mb-1">Stato</label>
                 <select name="status" id="status"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-violet-200">
-                    <option value="planneed">Pianificato</option>
-                    <option value="purchased">Comprato</option>
-                    <option value="wrapped">Confezionato</option>
-                    <option value="given">Consegnato</option>
+                    <option value="da_comprare">Pianificato</option>
+                    <option value="acquistato">Comprato</option>
+                    <option value="incartato">Confezionato</option>
+                    <option value="consegnato">Consegnato</option>
                 </select>
             </div>
 

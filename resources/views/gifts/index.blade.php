@@ -1,4 +1,10 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="container mx-auto px-4 py-6 bg-violet-50 rounded-lg shadow">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">I tuoi regali</h1>
@@ -31,6 +37,8 @@
                             <td class="py-2 px-4 border-b">{{ $gift->budget }} €</td>
                             <td class="py-2 px-4 border-b">{{ ucfirst($gift->status) }}</td>
                             <td class="py-2 px-4 border-b">
+                                <a href="{{ route('gifts.show', $gift) }}"
+                                    class="text-purple-500 hover:underline mr-2">Visualizza</a>
                                 <a href="{{ route('gifts.edit', $gift) }}"
                                     class="text-blue-500 hover:underline mr-2">Modifica</a>
                                 <form action="{{ route('gifts.destroy', $gift) }}" method="POST" class="inline">

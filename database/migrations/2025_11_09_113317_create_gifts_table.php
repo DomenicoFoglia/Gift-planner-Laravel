@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('occasion');
             $table->string('idea');
             $table->decimal('budget', 8, 2);
-            $table->enum('status', ['da_comprare', 'comprato', 'consegnato'])->default('da_comprare');
+            $table->enum('status', ['da_comprare', 'acquistato', 'incartato', 'consegnato'])->default('da_comprare');
             $table->text('notes')->nullable();
             $table->timestamps();
         });

@@ -35,7 +35,19 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'recipient' => 'required|string|max:255',
+            'occasion' => 'required|string|max:255',
+            'idea' => 'required|string|max:255',
+            'budget' => 'required|numeric|min:0',
+            'status' => 'required|string|in:da_comprare,acquistato,incartato,consegnato',
+            'notes' => 'nullable|string',
+        ]);
+
+
+        $gift = Auth::user()->gifts()->create($validated);
+
+        return redirect()->route('gifts.index')->with('success', 'Regalo creato con successo!');
     }
 
     /**
@@ -43,7 +55,9 @@ class GiftController extends Controller
      */
     public function show(Gift $gift)
     {
-        //
+        $this->authorize('view', $gift);
+
+        return view('gifts.show', compact('gift'));
     }
 
     /**
@@ -51,7 +65,9 @@ class GiftController extends Controller
      */
     public function edit(Gift $gift)
     {
-        //
+        $this->authorize('update', $gift);
+
+        return view('gifts.update', compact('gift'));
     }
 
     /**
@@ -59,7 +75,20 @@ class GiftController extends Controller
      */
     public function update(Request $request, Gift $gift)
     {
-        //
+        $this->authorize('update', $gift);
+
+        $validated = $request->validate([
+            'recipient' => 'required|string|max:255',
+            'occasion' => 'required|string|max:255',
+            'idea' => 'required|string|max:255',
+            'budget' => 'required|numeric|min:0',
+            'status' => 'required|string|in:da_comprare,acquistato,incartato,consegnato',
+            'notes' => 'nullable|string',
+        ]);
+
+        $gift->update($validated);
+
+        return redirect()->route('gifts.index')->with('success', 'Regalo aggiornato con successo');
     }
 
     /**
