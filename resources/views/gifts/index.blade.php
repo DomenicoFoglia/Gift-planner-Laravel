@@ -5,7 +5,7 @@
         </div>
     @endif
 
-    <div class="container mx-auto px-4 py-6 bg-violet-50 rounded-lg shadow">
+    <div class="container mx-auto px-4 py-6 bg-violet-100 rounded-lg shadow">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">I tuoi regali</h1>
             <a href="{{ route('gifts.create') }}"

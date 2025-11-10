@@ -5,8 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    <a href="{{ route('home') }}" class="flex items-center space-x-2">
+                        <img src="{{ asset('media/logo_gift.png') }}" alt="Logo" class="h-9 w-auto">
+                        <span class="ttext-xl font-semibold text-gray-800">Gifts</span>
                     </a>
                 </div>
 
@@ -14,6 +15,16 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('gifts.index')" :active="request()->routeIs('gifts.index')">
+                        {{ __('Lista regali') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('gifts.create')" :active="request()->routeIs('gifts.create')">
+                        {{ __('Nuovo regalo') }}
                     </x-nav-link>
                 </div>
             </div>
